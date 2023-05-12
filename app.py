@@ -5,6 +5,9 @@ from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
 from langchain.output_parsers import RetryWithErrorOutputParser
 import streamlit as st
+import os
+
+os.environ["OPENAI_API_KEY"] = st.secrets.oai.OPENAI_API_KEY
 
 class Question(BaseModel):
     question: str = Field(description='The question of the trivia')
